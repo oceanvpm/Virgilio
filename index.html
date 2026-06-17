@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virgilio · Tesauro contextual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">V</span>
+        <div>
+          <h1>Virgilio</h1>
+          <p class="tagline">Tesauro contextual del español</p>
+        </div>
+      </div>
+      <nav class="history" id="history" aria-label="Palabras exploradas"></nav>
+    </header>
+
+    <main>
+      <form id="lookup" class="lookup" autocomplete="off">
+        <div class="field">
+          <label for="palabra">Palabra</label>
+          <input id="palabra" name="palabra" type="text" placeholder="p. ej. agudo" required />
+        </div>
+        <div class="field grow">
+          <label for="contexto">Oración de contexto <span class="opt">(opcional, pero recomendado)</span></label>
+          <input
+            id="contexto"
+            name="contexto"
+            type="text"
+            placeholder="p. ej. Tiene un ingenio agudo para la sátira."
+          />
+        </div>
+        <button type="submit" id="go">Trazar el mapa</button>
+      </form>
+
+      <p class="hint" id="hint">
+        Escribe una palabra y, si puedes, la oración donde la usas. Te devuelvo una red de
+        sinónimos afinados a ese sentido. Haz clic en cualquier sinónimo para seguir explorando.
+      </p>
+
+      <section class="stage">
+        <div id="status" class="status" hidden></div>
+        <svg id="web" viewBox="0 0 1000 720" role="img" aria-label="Red de sinónimos" hidden></svg>
+        <aside id="panel" class="panel" hidden></aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
